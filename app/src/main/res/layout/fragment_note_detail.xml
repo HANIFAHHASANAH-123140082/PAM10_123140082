@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D0D">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="#0D0D0D">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="#161616"
+            android:src="@android:drawable/ic_media_previous"
+            android:tint="#E8600A"/>
+
+        <TextView
+            android:id="@+id/tvToolbarTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Catatan Baru"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Simpan"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:backgroundTint="#E8600A"
+            android:stateListAnimator="@null"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#1E1E1E"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JUDUL"
+            android:textColor="#E8600A"
+            android:textSize="11sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="#111111"
+            android:padding="12dp"
+            android:hint="Judul catatan"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:inputType="textCapSentences"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ISI CATATAN"
+            android:textColor="#E8600A"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp"/>
+
+        <EditText
+            android:id="@+id/etContent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="6dp"
+            android:background="#111111"
+            android:padding="12dp"
+            android:hint="Tulis catatanmu di sini..."
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:gravity="top"
+            android:inputType="textCapSentences|textMultiLine"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="18dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tvCreatedAt"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="10sp"/>
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="Hapus"
+            android:textColor="#E8600A"
+            android:textSize="11sp"
+            android:backgroundTint="#1A0A00"
+            android:stateListAnimator="@null"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>
