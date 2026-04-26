@@ -6,19 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesapp.R
-import com.example.notesapp.data.NoteRepository
-import com.example.notesapp.data.createDatabase
 import com.example.notesapp.databinding.FragmentNotesBinding
+import com.example.notesapp.network.NetworkMonitor
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NotesFragment : Fragment() {
 
     private var _binding: FragmentNotesBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: NotesViewModel
+
+    // ✅ Inject via Koin
+    private val viewModel: NotesViewModel by viewModel()
+    private val networkMonitor: NetworkMonitor by inject()
+
     private lateinit var adapter: NoteAdapter
 
     override fun onCreateView(
@@ -32,10 +38,14 @@ class NotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = createDatabase(requireContext())
-        val repo = NoteRepository(db)
-        viewModel = ViewModelProvider(this, NotesViewModelFactory(repo))[NotesViewModel::class.java]
+        setupRecyclerView()
+        observeUiState()
+        observeNetwork()
+        setupSearch()
+        setupButtons()
+    }
 
+    private fun setupRecyclerView() {
         adapter = NoteAdapter(
             onClick = { note ->
                 val action = NotesFragmentDirections.actionNotesToDetail(note.id)
@@ -43,10 +53,11 @@ class NotesFragment : Fragment() {
             },
             onDelete = { note -> viewModel.deleteNote(note.id) }
         )
-
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
+    }
 
+    private fun observeUiState() {
         viewModel.uiState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is NotesUiState.Loading -> {
@@ -71,7 +82,23 @@ class NotesFragment : Fragment() {
                 }
             }
         }
+    }
 
+    // ✅ Observe network status dan tampilkan banner
+    private fun observeNetwork() {
+        networkMonitor.start()
+        viewLifecycleOwner.lifecycleScope.launch {
+            networkMonitor.isConnected.collect { connected ->
+                if (connected) {
+                    binding.networkBanner.visibility = View.GONE
+                } else {
+                    binding.networkBanner.visibility = View.VISIBLE
+                }
+            }
+        }
+    }
+
+    private fun setupSearch() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?) = false
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -80,12 +107,13 @@ class NotesFragment : Fragment() {
                 return true
             }
         })
+    }
 
+    private fun setupButtons() {
         binding.fabAdd.setOnClickListener {
             val action = NotesFragmentDirections.actionNotesToDetail(-1L)
             findNavController().navigate(action)
         }
-
         binding.btnSettings.setOnClickListener {
             findNavController().navigate(R.id.action_notes_to_settings)
         }
@@ -93,6 +121,7 @@ class NotesFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        networkMonitor.stop()
         _binding = null
     }
 }

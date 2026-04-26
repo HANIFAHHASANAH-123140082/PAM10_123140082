@@ -1,35 +1,42 @@
-# Notes App - Week 7
+# Notes App - Week 8
 **Nama:** Hanifah Hasanah  
 **NIM:** 123240082  
 **Kelas:** RA
 
-## Database Schema
-### Tabel: Note
-| Kolom | Tipe | Keterangan |
-|-------|------|------------|
-| id | INTEGER | Primary Key, Autoincrement |
-| title | TEXT | Judul catatan |
-| content | TEXT | Isi catatan |
-| created_at | INTEGER | Timestamp dibuat |
-| updated_at | INTEGER | Timestamp diupdate |
+# Notes App - Week 8
 
-## Fitur
-- SQLDelight local database (offline-first)
-- CRUD (Create, Read, Update, Delete)
-- Search functionality
-- Settings (theme & sort order) via DataStore
-- UI States: Loading, Empty, Content
+## Fitur Baru
+- Koin Dependency Injection
+- DeviceInfo (simulasi expect/actual)
+- NetworkMonitor (simulasi expect/actual)
+- Device Info di Settings Screen
+- Network Status Indicator di Main Screen
+- Light/Dark Theme
 
 ## Screenshots
 
-| Home | Tambah | Isi Catatan |
-|------|--------|-------------|
-| ![Home](screenshot/home.jpeg) | ![Tambah](screenshot/tambah.jpeg) | ![Isi Catatan](screenshot/tambah%20catatan.jpeg) |
+### Main Screen Normal
 
-| Simpan | Setelan |
-|--------|---------|
-| ![Simpan](screenshot/simpan%20catatan.jpeg) | ![Setelan](screenshot/setelan.jpeg) |
+![Main Screen Normal](screenshot/main_screen_normal.jpeg)
+
+### Network Indicator
+![Network Status](screenshot/network_status.jpeg)
+
+### Device Info
+![Device Info](screenshot/device_info.jpeg)
+
+### Layar Catatan Baru + udah dirubah ke terang
+![Catatan Baru](screenshot/tap_tombol+.jpeg)
+
+## Tech Stack
+- Kotlin
+- Koin 3.5.0 (Dependency Injection)
+- SQLDelight (Database)
+- DataStore (Preferences)
+- Navigation Component
+- ViewModel + LiveData
+- StateFlow (Network Monitor)
 
 ## Video Demo
 
-▶️ [Klik untuk menonton demo aplikasi](https://drive.google.com/file/d/1Q6MXk0V4h5LY-GI-Qu5ZJQbiZ_2sEG2C/view?usp=sharing)
+▶️ [Klik untuk menonton demo aplikasi](https://drive.google.com/file/d/1p7YTInfosoOP51reD5dtAfW7hf-5qs2e/view?usp=sharing)

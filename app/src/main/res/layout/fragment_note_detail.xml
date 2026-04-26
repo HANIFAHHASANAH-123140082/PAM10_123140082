@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#0D0D0D">
+    android:background="@color/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="64dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:background="#0D0D0D">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="@color/colorBackground">
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="#161616"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_icon_button"
             android:src="@android:drawable/ic_media_previous"
-            android:tint="#E8600A"/>
+            android:tint="@color/colorAccent"
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/tvToolbarTitle"
@@ -30,75 +30,82 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Catatan Baru"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="14dp"/>
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="40dp"
             android:text="Simpan"
             android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:backgroundTint="#E8600A"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/colorAccent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:stateListAnimator="@null"/>
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#1E1E1E"/>
+        android:background="@color/colorDivider"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="18dp">
+        android:padding="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="JUDUL"
-            android:textColor="#E8600A"
+            android:textColor="@color/colorAccent"
             android:textSize="11sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:letterSpacing="0.12"
+            android:layout_marginBottom="8dp"/>
 
         <EditText
             android:id="@+id/etTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:background="#111111"
-            android:padding="12dp"
+            android:background="@drawable/bg_edittext"
+            android:padding="14dp"
             android:hint="Judul catatan"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextHint"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:inputType="textCapSentences"/>
+            android:inputType="textCapSentences"
+            android:layout_marginBottom="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ISI CATATAN"
-            android:textColor="#E8600A"
+            android:textColor="@color/colorAccent"
             android:textSize="11sp"
             android:textStyle="bold"
-            android:layout_marginTop="14dp"/>
+            android:letterSpacing="0.12"
+            android:layout_marginBottom="8dp"/>
 
         <EditText
             android:id="@+id/etContent"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="6dp"
-            android:background="#111111"
-            android:padding="12dp"
+            android:background="@drawable/bg_edittext"
+            android:padding="14dp"
             android:hint="Tulis catatanmu di sini..."
-            android:textColor="#FFFFFF"
-            android:textSize="13sp"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextHint"
+            android:textSize="14sp"
             android:gravity="top"
             android:inputType="textCapSentences|textMultiLine"/>
     </LinearLayout>
@@ -108,29 +115,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
-        android:paddingBottom="18dp"
-        android:paddingTop="10dp">
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
+        android:paddingTop="12dp">
 
         <TextView
             android:id="@+id/tvCreatedAt"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textColor="#333333"
-            android:textSize="10sp"/>
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="11sp"/>
 
         <Button
             android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:text="Hapus"
-            android:textColor="#E8600A"
-            android:textSize="11sp"
-            android:backgroundTint="#1A0A00"
+            android:layout_height="36dp"
+            android:text="🗑 Hapus"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            android:backgroundTint="@color/colorDeleteBg"
             android:stateListAnimator="@null"
             android:visibility="gone"/>
     </LinearLayout>
-
 </LinearLayout>

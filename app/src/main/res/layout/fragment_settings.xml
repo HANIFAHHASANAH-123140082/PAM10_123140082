@@ -1,152 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#0D0D0D">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp">
-
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="#161616"
-            android:src="@android:drawable/ic_media_previous"
-            app:tint="#E8600A"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Setelan"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginStart="12dp"/>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#1E1E1E"/>
+    android:background="@color/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TAMPILAN"
-            android:textColor="#E8600A"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="20dp"
+            android:background="@color/colorBackground">
 
-        <androidx.cardview.widget.CardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_button"
+                android:src="@android:drawable/ic_media_previous"
+                android:tint="@color/colorAccent"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pengaturan"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="14dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorDivider"/>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#111111"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <LinearLayout
+            <!-- DEVICE INFO -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INFORMASI PERANGKAT"
+                android:textColor="@color/colorAccent"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
+                app:cardBackgroundColor="@color/colorCard"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
 
-                <RadioGroup
-                    android:id="@+id/rgTheme"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <RadioButton
-                        android:id="@+id/rbDark"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tema Gelap"
-                        android:textColor="#CCCCCC"
-                        android:buttonTint="#E8600A"/>
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="12dp">
 
-                    <RadioButton
-                        android:id="@+id/rbLight"
+                        <TextView
+                            android:layout_width="28dp"
+                            android:layout_height="wrap_content"
+                            android:text="📱"
+                            android:textSize="18sp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Perangkat"
+                                android:textColor="@color/colorTextSecondary"
+                                android:textSize="11sp"/>
+
+                            <TextView
+                                android:id="@+id/tvDeviceName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textColor="@color/colorTextPrimary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorDivider"/>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tema Terang"
-                        android:textColor="#CCCCCC"
-                        android:buttonTint="#E8600A"/>
-                </RadioGroup>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="URUTAN CATATAN"
-            android:textColor="#E8600A"
-            android:textSize="9sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+                        <TextView
+                            android:layout_width="28dp"
+                            android:layout_height="wrap_content"
+                            android:text="🤖"
+                            android:textSize="18sp"/>
 
-        <androidx.cardview.widget.CardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="#111111"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
 
-            <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sistem Operasi"
+                                android:textColor="@color/colorTextSecondary"
+                                android:textSize="11sp"/>
+
+                            <TextView
+                                android:id="@+id/tvOsVersion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textColor="@color/colorTextPrimary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorDivider"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingTop="12dp">
+
+                        <TextView
+                            android:layout_width="28dp"
+                            android:layout_height="wrap_content"
+                            android:text="📦"
+                            android:textSize="18sp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Versi Aplikasi"
+                                android:textColor="@color/colorTextSecondary"
+                                android:textSize="11sp"/>
+
+                            <TextView
+                                android:id="@+id/tvAppVersion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textColor="@color/colorTextPrimary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- TAMPILAN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TAMPILAN"
+                android:textColor="@color/colorAccent"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
+                app:cardBackgroundColor="@color/colorCard"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
 
-                <RadioGroup
-                    android:id="@+id/rgSort"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <RadioButton
-                        android:id="@+id/rbNewest"
+                    <RadioGroup
+                        android:id="@+id/rgTheme"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Terbaru dulu"
-                        android:textColor="#CCCCCC"
-                        android:buttonTint="#E8600A"/>
+                        android:layout_height="wrap_content">
 
-                    <RadioButton
-                        android:id="@+id/rbOldest"
+                        <RadioButton
+                            android:id="@+id/rbDark"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:text="🌙  Tema Gelap"
+                            android:textColor="@color/colorRadioText"
+                            android:textSize="14sp"
+                            android:buttonTint="@color/colorAccent"
+                            android:gravity="center_vertical"/>
+
+                        <RadioButton
+                            android:id="@+id/rbLight"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:text="☀️  Tema Terang"
+                            android:textColor="@color/colorRadioText"
+                            android:textSize="14sp"
+                            android:buttonTint="@color/colorAccent"
+                            android:gravity="center_vertical"/>
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- URUTAN CATATAN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="URUTAN CATATAN"
+                android:textColor="@color/colorAccent"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/colorCard"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <RadioGroup
+                        android:id="@+id/rgSort"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Terlama dulu"
-                        android:textColor="#CCCCCC"
-                        android:buttonTint="#E8600A"/>
-                </RadioGroup>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnSaveSettings"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Simpan Pengaturan"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#E8600A"
-            android:layout_marginTop="24dp"
-            android:stateListAnimator="@null"/>
+                        <RadioButton
+                            android:id="@+id/rbNewest"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:text="🔽  Terbaru dulu"
+                            android:textColor="@color/colorRadioText"
+                            android:textSize="14sp"
+                            android:buttonTint="@color/colorAccent"
+                            android:gravity="center_vertical"/>
+
+                        <RadioButton
+                            android:id="@+id/rbOldest"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:text="🔼  Terlama dulu"
+                            android:textColor="@color/colorRadioText"
+                            android:textSize="14sp"
+                            android:buttonTint="@color/colorAccent"
+                            android:gravity="center_vertical"/>
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btnSaveSettings"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Simpan Pengaturan"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="8dp"
+                android:stateListAnimator="@null"/>
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
