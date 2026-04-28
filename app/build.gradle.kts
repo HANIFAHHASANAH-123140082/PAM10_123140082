@@ -15,10 +15,14 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+
+        val groqApiKey = project.findProperty("groq.api.key")?.toString() ?: ""
+        buildConfigField("String", "GROQ_API_KEY", "\"$groqApiKey\"")
     }
 
     buildFeatures {
-        viewBinding = true   // ← DIPINDAH ke sini (keluar dari buildTypes!)
+        viewBinding = true
+        buildConfig = true
     }
 
     buildTypes {

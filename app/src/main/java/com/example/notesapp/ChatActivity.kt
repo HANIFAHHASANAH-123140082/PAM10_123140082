@@ -23,7 +23,7 @@ class ChatActivity : AppCompatActivity() {
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val apiKey = getString(R.string.gemini_api_key)
+        val apiKey = BuildConfig.GROQ_API_KEY
         geminiHelper = GeminiHelper(apiKey)
 
         addBubble("Halo! Saya AI Assistant kamu 😊\nAda yang bisa saya bantu?", isUser = false)
