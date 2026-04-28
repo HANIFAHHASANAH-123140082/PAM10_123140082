@@ -1,42 +1,56 @@
-# Notes App - Week 8
+# Notes App NotesApp with AI Assistant - Week 9
 **Nama:** Hanifah Hasanah  
 **NIM:** 123240082  
 **Kelas:** RA
 
-# Notes App - Week 8
+Aplikasi pencatat berbasis Android yang dilengkapi fitur AI Assistant
+menggunakan Groq API (LLaMA 3.3).
 
-## Fitur Baru
-- Koin Dependency Injection
-- DeviceInfo (simulasi expect/actual)
-- NetworkMonitor (simulasi expect/actual)
-- Device Info di Settings Screen
-- Network Status Indicator di Main Screen
-- Light/Dark Theme
+## ✨ Fitur AI yang Diintegrasikan
+
+### 💬 Smart AI Assistant (Chatbot)
+- Pengguna dapat bertanya dan berdiskusi dengan AI langsung di dalam aplikasi
+- AI menjawab dalam Bahasa Indonesia dengan ramah dan ringkas
+- Mendukung dark mode dan light mode secara otomatis
+- Tampilan chat modern dengan bubble message
+
+## 🛠️ Teknologi yang Digunakan
+- **Bahasa**: Kotlin
+- **AI API**: Groq API (Model: LLaMA 3.3 70B)
+- **Min SDK**: 24
+- **Target SDK**: 34
+
+## ⚙️ Setup & Instalasi
+
+1. Clone repository ini
+2. Buka di Android Studio
+3. Buat API key gratis di https://console.groq.com
+4. Tambahkan API key di `res/values/strings.xml`:
+```xml
+   <string name="gemini_api_key">API_KEY_KAMU</string>
+```
+5. Run aplikasi
+
+## 📱 Cara Menggunakan Fitur AI
+1. Buka aplikasi NotesApp
+2. Tap tombol **✨ AI Assistant** di halaman utama
+3. Ketik pertanyaan di kotak pesan
+4. Tap tombol kirim → AI akan menjawab
+
+## 🔧 Error Handling
+- Koneksi timeout ditangani otomatis
+- Pesan error ditampilkan jika koneksi gagal
+- Loading indicator saat menunggu respons AI
 
 ## Screenshots
 
-### Main Screen Normal
+### Tombol AI di Menu Utama
 
-![Main Screen Normal](screenshot/main_screen_normal.jpeg)
+![Tombol Ai di Menu Utama](screenshot/AI_tombol.jpeg)
 
-### Network Indicator
-![Network Status](screenshot/network_status.jpeg)
-
-### Device Info
-![Device Info](screenshot/device_info.jpeg)
-
-### Layar Catatan Baru + udah dirubah ke terang
-![Catatan Baru](screenshot/tap_tombol+.jpeg)
-
-## Tech Stack
-- Kotlin
-- Koin 3.5.0 (Dependency Injection)
-- SQLDelight (Database)
-- DataStore (Preferences)
-- Navigation Component
-- ViewModel + LiveData
-- StateFlow (Network Monitor)
+### Balasan Chat AI Berjalan Normal 
+![Balasan Chat AI](screenshot/chatAI.jpeg)
 
 ## Video Demo
 
-▶️ [Klik untuk menonton demo aplikasi](https://drive.google.com/file/d/1p7YTInfosoOP51reD5dtAfW7hf-5qs2e/view?usp=sharing)
+▶️ [Klik untuk menonton demo aplikasi](https://drive.google.com/file/d/1L8cy95Dl0Mr8iqRMbQEdOPlqskssJaCL/view?usp=sharing)

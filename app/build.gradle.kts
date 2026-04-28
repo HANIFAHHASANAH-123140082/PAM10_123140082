@@ -59,6 +59,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("io.insert-koin:koin-android:3.5.0")
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
 }
 
 sqldelight {

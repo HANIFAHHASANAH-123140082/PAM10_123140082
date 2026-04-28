@@ -1,6 +1,8 @@
 package com.example.notesapp
 
+import android.content.Intent
 import android.os.Bundle
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
@@ -15,16 +17,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        // ✅ Apply tema SEBELUM super.onCreate agar tidak flicker
         applyThemeSync()
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        val btnAIChat = findViewById<ExtendedFloatingActionButton>(R.id.btnAIChat)
+        btnAIChat.setOnClickListener {
+            val intent = Intent(this, ChatActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun applyThemeSync() {
-        // Baca tema dari DataStore secara blocking (hanya di onCreate)
         val prefs = androidx.datastore.preferences.core.preferencesOf()
         val dataStore = SettingsDataStore(this)
 
