@@ -10,18 +10,18 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val appModule = module {
-
-    // Database
+// MODULE 1: Data layer
+val dataModule = module {
     single { createDatabase(androidContext()) }
-
-    // Data
     single { NoteRepository(get()) }
-
-    // Platform
     single<DeviceInfo> { AndroidDeviceInfo(androidContext()) }
     single { NetworkMonitor(androidContext()) }
+}
 
-    // ViewModel
+// MODULE 2: ViewModel layer
+val viewModelModule = module {
     viewModel { NotesViewModel(get()) }
 }
+
+// Gabungan semua module
+val allModules = listOf(dataModule, viewModelModule)

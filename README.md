@@ -1,56 +1,54 @@
-# Notes App NotesApp with AI Assistant - Week 9
-**Nama:** Hanifah Hasanah  
-**NIM:** 123240082  
-**Kelas:** RA
+# Tugas Praktikum Minggu 10 - Testing & Dependency Injection
+**Nama:** [Hanifah Hasanah]  
+**NIM:** 123140082  
+**Branch:** week-10
 
-Aplikasi pencatat berbasis Android yang dilengkapi fitur AI Assistant
-menggunakan Groq API (LLaMA 3.3).
+---
 
-## ✨ Fitur AI yang Diintegrasikan
+## Deskripsi
+Implementasi Koin DI dan Testing untuk Notes App Android.
 
-### 💬 Smart AI Assistant (Chatbot)
-- Pengguna dapat bertanya dan berdiskusi dengan AI langsung di dalam aplikasi
-- AI menjawab dalam Bahasa Indonesia dengan ramah dan ringkas
-- Mendukung dark mode dan light mode secara otomatis
-- Tampilan chat modern dengan bubble message
+---
 
-## 🛠️ Teknologi yang Digunakan
-- **Bahasa**: Kotlin
-- **AI API**: Groq API (Model: LLaMA 3.3 70B)
-- **Min SDK**: 24
-- **Target SDK**: 34
+## Koin DI Modules
+- `dataModule` → NoteDatabase, NoteRepository, DeviceInfo, NetworkMonitor
+- `viewModelModule` → NotesViewModel
 
-## ⚙️ Setup & Instalasi
+---
 
-1. Clone repository ini
-2. Buka di Android Studio
-3. Buat API key gratis di https://console.groq.com
-4. Tambahkan API key di `res/values/strings.xml`:
-```xml
-   <string name="gemini_api_key">API_KEY_KAMU</string>
-```
-5. Run aplikasi
+## Daftar Test Cases
 
-## 📱 Cara Menggunakan Fitur AI
-1. Buka aplikasi NotesApp
-2. Tap tombol **✨ AI Assistant** di halaman utama
-3. Ketik pertanyaan di kotak pesan
-4. Tap tombol kirim → AI akan menjawab
+### NoteRepositoryTest (5 test cases)
+1. `getAllNotes returns list of notes`
+2. `getAllNotes returns empty list when no notes`
+3. `getNoteById returns correct note`
+4. `getNoteById returns null when note not found`
+5. `deleteNote calls deleteNote query`
 
-## 🔧 Error Handling
-- Koneksi timeout ditangani otomatis
-- Pesan error ditampilkan jika koneksi gagal
-- Loading indicator saat menunggu respons AI
+### NotesViewModelTest (7 test cases)
+1. `loadNotes success sets uiState to Content`
+2. `loadNotes empty sets uiState to Empty`
+3. `loadNotes error sets uiState to Error`
+4. `deleteNote calls repository deleteNote`
+5. `uiStateFlow emits Loading then Content` *(Turbine)*
+6. `uiStateFlow emits Empty when no notes` *(Turbine)*
 
-## Screenshots
+### NotesScreenRobolectricTest (3 test cases)
+1. `test_uiState_content_shows_correct_notes`
+2. `test_uiState_empty_has_no_notes`
+3. `test_uiState_error_has_correct_message`
 
-### Tombol AI di Menu Utama
+---
 
-![Tombol Ai di Menu Utama](screenshot/AI_tombol.jpeg)
+## Test Coverage Report
+![Test Summary](screenshot/test_summary.jpeg)
+![Test Classes](screenshot/test_classes.jpeg)
+![Test Detail](screenshot/test_detail.jpeg)
 
-### Balasan Chat AI Berjalan Normal 
-![Balasan Chat AI](screenshot/chatAI.jpeg)
+---
 
-## Video Demo
-
-▶️ [Klik untuk menonton demo aplikasi](https://drive.google.com/file/d/1L8cy95Dl0Mr8iqRMbQEdOPlqskssJaCL/view?usp=sharing)
+## Hasil Test
+- Total: 15 tests
+- Passed: 15
+- Failed: 0
+- Success Rate: 100%

@@ -1,7 +1,7 @@
 package com.example.notesapp
 
 import android.app.Application
-import com.example.notesapp.di.appModule
+import com.example.notesapp.di.allModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -13,7 +13,7 @@ class NotesApplication : Application() {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@NotesApplication)
-            modules(appModule)
+            modules(allModules)
         }
     }
 }
